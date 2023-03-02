@@ -81,7 +81,7 @@ if __name__ == '__main__':
      # Initialize the Trainer and the DataModule
      trainer = pl.Trainer.from_argparse_args(
           arg_groups['pl.Trainer'],
-          strategy=DDPPlugin(find_unused_parameters=False), logger=logger,
+          strategy=pl.strategies.DDPStrategy(find_unused_parameters=False), logger=logger,
           log_every_n_steps=10, num_sanity_val_steps=0,
           callbacks=callbacks
      )
